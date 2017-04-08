@@ -23,7 +23,7 @@ void* MesgQ::pendMSG(uint32_t timeout)
     Mutex.lock();
     qDebug()<<"wait";
     if(waitCon.wait(&Mutex, timeout)==true){
-        if(!mesgQ.isEmpty())
+        if(!mesgQ.length()>0)
         {
             printf("mesq not empty:%d\n",mesgQ.length());
             msg = mesgQ.takeFirst();
